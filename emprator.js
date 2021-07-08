@@ -7,7 +7,7 @@ const { keep_alive } = require("./keep_alive");
 const { TOKEN, PREFIX, AVATARURL, BOTNAME, } = require(`./config.json`);
 const figlet = require("figlet");
 const client = new Client({ disableMentions: `` , partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
-client.login(TOKEN);
+client.login("ODQyMzU1MTg1OTEyNTEyNTgy.YJ0GZg.Z2AC7ncpL7DUhABvy-xgf61BQsA");
 client.commands = new Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
@@ -41,6 +41,102 @@ client.on(`ready`, () => {
   
       }, (5000));
       ////////////////////////////////
+client.on('message', habdo => {
+    if (habdo.content.startsWith("/kick")) {
+    if (!habdo.guild) return;
+    if (!habdo.member.hasPermission('KICK_MEMBERS')) return habdo.reply('**لا يــــــوجد لديـــــــــك برمشــــــن**');
+   let user = habdo.mentions.users.first();
+    if (!user) return habdo.reply('**Kick A Member User**');
+      habdo.guild.member(user).kick();
+      habdo.channel.send(`**✈ \`${user}\` Kicked from the server.**`);
+}
+}); 
+//////////////////
+client.on("message", russi => {
+  if (russi.content === "/server") {
+
+
+    let embed = new Discord.MessageEmbed()
+    .setTitle(`${russi.guild.name}`)///Russi
+    .setThumbnail(client.user.avatarURL())
+    .setColor('#3a6bff')///Russi
+    .setFooter(`Requested | ${russi.author.tag}`, russi.author.avatarURL())
+    .addField('> 🆔 ID Server :', `${russi.guild.id}`)
+    .addField('> :crown: Owner Server :', `${russi.guild.owner}`)
+    .addField('> :calendar: Created : ', `${russi.guild.createdAt.toLocaleString()}`)
+    .addField('> :busts_in_silhouette: Members : ', `${russi.guild.memberCount}`)
+    .addField('> :speech_balloon: Channels : ', `${russi.guild.channels.cache.size}`)
+    .addField('> :earth_americas: Region : ', `${russi.guild.region}`)
+    .setTimestamp()///Russi
+    russi.channel.send(embed);
+  }
+});
+//////////
+client.on("guildCreate", guild => { let channel = client.channels.cache.get("842093016156209182"); let embed = new MessageEmbed().setColor("#FF0000") .setAuthor(client.user.username, client.user.avatarURL()) .setTitle( `✅ Join Server`) .addField(" **Server Name**", `${guild.name}`) .addField(" **Server Owner**", `${guild.owner}`) .addField(" **Server Id**", `${guild.id}`) .addField(" **Member Count**", `${guild.memberCount}`) .setFooter(`${client.user.tag}`); channel.send(embed);}); client.on("guildDelete", guild => { let channel = client.channels.cache.get("842092942616559656"); let embed = new MessageEmbed() .setColor("#FF0000") .setAuthor(client.user.username, client.user.avatarURL()) .setTitle( `❌ Left Server`) .addField(" **Server Name**", `${guild.name}`) .addField(" **Server Owner**", `${guild.owner}`) .addField(" **Server Id**", `${guild.id}`) .addField(" **Member Count**", `${guild.memberCount}`) .setFooter(`${client.user.tag}`); channel.send(embed);});
+///////////
+client.on("message", emprator => {
+if (emprator.content === "slaw") {
+emprator.channel.send("**🌸 | سڵاو لە تۆش بەخێربێیت**"); 
+  }
+});
+client.on("message", SAEWAN => {
+  if (SAEWAN.content === "hello") {
+    SAEWAN.channel.send("**🌸 | Hello, welcome you too**");
+  }
+});
+client.on("message", SAEWAN => {
+  if (SAEWAN.content === "مرحبا") {
+    SAEWAN.channel.send("**🌸 | مرحبا، مرحبا بك أيضا**");
+  }
+});
+client.on("message", SAEWAN => {
+  if (SAEWAN.content === "ڕیکلام") {
+    SAEWAN.channel.send("**🌸 | دڵم چاوەڕێکە تا یەکێ جوابت دەداتەوە**");
+  }
+});
+client.on("message", SAEWAN => {
+  if (SAEWAN.content === "partner") {
+    SAEWAN.channel.send("**🌸 | Don't rush my heart until someone gives you a job**");
+  }
+});
+client.on("message", emprator => { 
+   if (emprator.content === "سڵاو") {
+      emprator.channel.send("**🌸 | سڵاو لە تۆش بەخێربێیت**"); 
+   }
+});
+client.on("message", emprator => {
+   if (emprator.content === "الاعلان") {
+      emprator.channel.send("**🌸 |لا تستعجل قلبي حتى يعطيك شخص ما وظيفة **"); 
+   }
+}); 
+client.on("message", SAEWAN => {
+  if (SAEWAN.content === "reklam") {
+    SAEWAN.channel.send("**🌸 | دڵم چاوەڕێکە تا یەکێ جوابت دەداتەوە**");
+  }
+});
+
+///////////
+client.on("message", habdo => {
+    if (habdo.content.startsWith("/avatar")) {
+  var embed = new Discord.MessageEmbed()
+         .setAuthor(`${habdo.author.username}`, habdo.author.avatarURL({dynamic: true}))
+         .setColor('#2E2E30')
+         .setDescription(`**[Avatar Link](${habdo.author.avatarURL({dynamic: true, format: 'png', size: 1024})})**`)
+         .setImage(habdo.author.avatarURL({dynamic: true, format: 'png', size: 1024}))
+         .setFooter(`Requsted by ${habdo.author.tag}`, habdo.author.avatarURL({dynamic: true}))
+    habdo.channel.send(embed);
+}
+});
+
+//////////////////
+client.on('message', async message => {
+    if (message.content.startsWith("/id")) {
+    let user = message.mentions.users.first();
+    if (!user) return message.channel.send('**id A member User**');
+      message.channel.send(`**🎉 [ ${user.username} ] 🎉 Id :**`);
+      message.channel.send(`${user.id}`);
+}
+}); 
       ////////////////////////////////
     figlet.text(`${client.user.username} ready!`, function (err, data) {
       if (err) {
@@ -98,7 +194,35 @@ client.on(`message`, async (message) => {
     message.channel.send(embed)
   }
 
+if(message.content.startsWith(`${prefix}about`)){
+    //define saymsg
+    const saymsg = message.content.slice(Number(prefix.length) + 5)
+    //define embed
+    const embed = new Discord.MessageEmbed()
+    .setColor("BLUE")
+    .setAuthor("")
+    .setThumbnail(`https://cdn.discordapp.com/emojis/806266140699525120.gif`)
+    .setFooter(message.author.username, message.author.displayAvatarURL)
+    .setTimestamp()
+    .setDescription(`
+> **<a:emoji_5:842511191175200808>Name Bot<a:emoji_5:842511191175200808>**
+<@842355185912512582>
+> **<a:emoji_7:843515052438323240>Server<a:emoji_7:843515052438323240>**
+${client.guilds.cache.size}
+> **<a:emoji_7:843515052438323240>User<a:emoji_7:843515052438323240>**
+${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}
+> **<a:emoji_3:842511100393947136>Owner Bot<a:emoji_3:842511100393947136>**
+<@708493122753003550>
+> **<a:emoji_3:842511100393947136>Admin<a:emoji_3:842511100393947136>**
+<@695973287657734148>
+> **<a:emoji_5:842511173101813760>Prefix Bot<a:emoji_5:842511173101813760>** :
+     /
+`)
 
+    //send the Message
+    message.channel.send(embed)
+    message.react("<a:emoji_2:816354428859973643>")
+  } 
 //command Handler DO NOT TOUCH
  const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`);
  if (!prefixRegex.test(message.content)) return;
