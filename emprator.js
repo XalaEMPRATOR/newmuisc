@@ -35,14 +35,11 @@ client.on(`ready`, () => {
       });
       
 
-      client.user.setActivity(`${PREFIX}help | ${client.guilds.cache.size} Server`, { type: "STREAMING",
-      url: "https://www.twitch.tv/nocopyrightsounds"});
-   
-  
+  client.user.setActivity(`Type: ${PREFIX}help | ${client.guilds.cache.size} Server,Users ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)},`, { type: "PLAYING"});
       }, (5000));
       ////////////////////////////////
 client.on('message', habdo => {
-    if (habdo.content.startsWith("/kick")) {
+    if (habdo.content.startsWith(`${prefix}kick`)) {
     if (!habdo.guild) return;
     if (!habdo.member.hasPermission('KICK_MEMBERS')) return habdo.reply('**لا يــــــوجد لديـــــــــك برمشــــــن**');
    let user = habdo.mentions.users.first();
@@ -53,7 +50,7 @@ client.on('message', habdo => {
 }); 
 //////////////////
 client.on("message", russi => {
-  if (russi.content === "/server") {
+  if (russi.content === "p!server") {
 
 
     let embed = new Discord.MessageEmbed()
@@ -130,7 +127,7 @@ client.on("message", habdo => {
 
 //////////////////
 client.on('message', async message => {
-    if (message.content.startsWith("/id")) {
+    if (message.content.startsWith(`${prefix}id`)) {
     let user = message.mentions.users.first();
     if (!user) return message.channel.send('**id A member User**');
       message.channel.send(`**🎉 [ ${user.username} ] 🎉 Id :**`);
