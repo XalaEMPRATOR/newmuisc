@@ -1,6 +1,6 @@
 {
   "TOKEN": "xxxxxxx",
-  "PREFIX": "h!",
+  "PREFIX": "/",
   "approveemoji": "✅",
   "denyemoji": "🚫",
   "erroremoji": "️❗"
