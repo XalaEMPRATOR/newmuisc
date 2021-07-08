@@ -7,7 +7,7 @@ const { keep_alive } = require("./keep_alive");
 const { TOKEN, PREFIX, AVATARURL, BOTNAME, } = require(`./config.json`);
 const figlet = require("figlet");
 const client = new Client({ disableMentions: `` , partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
-client.login("ODQyMzU1MTg1OTEyNTEyNTgy.YJ0GZg.Z2AC7ncpL7DUhABvy-xgf61BQsA");
+client.login("ODQyMzU1MTg1OTEyNTEyNTgy.YJ0GZg.xFzCni3XqyAWSTrCp4f_bBc7wo0");
 client.commands = new Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
