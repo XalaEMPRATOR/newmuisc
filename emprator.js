@@ -50,7 +50,7 @@ client.on('message', habdo => {
 }); 
 //////////////////
 client.on("message", russi => {
-  if (russi.content === "p!server") {
+  if (russi.content === "p/server") {
 
 
     let embed = new Discord.MessageEmbed()
@@ -114,7 +114,7 @@ client.on("message", SAEWAN => {
 
 ///////////
 client.on("message", habdo => {
-    if (habdo.content.startsWith("/avatar")) {
+    if (habdo.content.startsWith(`${prefix}avatar`)) {
   var embed = new Discord.MessageEmbed()
          .setAuthor(`${habdo.author.username}`, habdo.author.avatarURL({dynamic: true}))
          .setColor('#2E2E30')
